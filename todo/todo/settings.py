@@ -113,14 +113,16 @@ CORS_ALLOWED_ORIGINS = (
 )
 
 #CSRF Trusted Origins
-CSRF_TRUSTED_ORIGINS = ["localhost:3000"]
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+]
 
 # Django REST Framework configuration
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.AllowAny",
-    ]
+    ],
 }
 
 

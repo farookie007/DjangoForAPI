@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8$jhj)u+xp6(_o044$uxuptqmv=0hje!r6443i7deiycj#xng%'
+SECRET_KEY = 'django-insecure-ql=a7t_!iqkm)o14&th-2&w!s-79%5s*!ha_9od*a(^7@k%21g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,19 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 3rd party APPs
-    "rest_framework",
-    "corsheaders",
     # Local APPs
     "accounts.apps.AccountsConfig",
-    "posts.apps.PostsConfig",
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # CORS middleware
-    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -130,24 +124,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Setting the custom User model as default
+# Setting the user model
 AUTH_USER_MODEL = "accounts.CustomUser"
-
-# Django rest_framework configurations
-REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        # "rest_framework.permissions.AllowAny",  # any user, authenticated or not, has full access
-        "rest_framework.permissions.IsAuthenticated",   # only authenticated, registered users have access
-        # "rest_framework.permissions.IsAdminUser",   # only admins/superusers have access
-        # "rest_framework.permissions.IsAuthenticatedOrReadOnly",   #unauthorized users can view any page, but only authenticated users have write, edit, or delete priviledges
-    ],
-}
-
-# CORS Headers configurations
-CORS_ORIGIN_WHITELIST = (
-    "http://localhost:3000",
-    "http://localhost:8000",
-)
-
-# CSRF configurations
-CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]
