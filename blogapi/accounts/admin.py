@@ -15,7 +15,7 @@ class CustomUserAdmin(UserAdmin):
         "name",
         "is_staff",
     ]
-    fieldsets = (
+    fieldsets = UserAdmin.fieldsets + (
         (None, {
             'fields': (
                 "name",
@@ -31,4 +31,4 @@ class CustomUserAdmin(UserAdmin):
     )
 
 
-admin.register(CustomUser, CustomUserAdmin)
+admin.site.register(CustomUser, CustomUserAdmin)
