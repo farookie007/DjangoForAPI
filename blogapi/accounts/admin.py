@@ -22,10 +22,12 @@ class CustomUserAdmin(UserAdmin):
             ),
         }),
     )
-    add_fieldsets = (
+    add_fieldsets = UserAdmin.add_fieldsets + (
         (None, {
             'fields': (
                 'name',
+                'first_name',
+                'last_name',
             ),
         }),
     )
