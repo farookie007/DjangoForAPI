@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd-party apps,
     'rest_framework',
+    'corsheaders',
     # local apps,
     'accounts.apps.AccountsConfig',
     'posts.apps.PostsConfig',
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # CORS middleware
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -137,3 +140,14 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
 }
+
+# CORS settings
+CORS_ORIGIN_WHITELIST = [
+    'https://127.0.0.1:3000',
+    'https://127.0.0.1:8000',
+]
+
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = [
+    'https://127.0.0.1:3000',
+]
